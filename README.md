@@ -12,6 +12,7 @@ Este repositório contém os arquivos e projetos do curso de Programação Web. 
 
 - HTML
 - CSS
+- JAVASCRIPT
 - PHP
 - Git
 
