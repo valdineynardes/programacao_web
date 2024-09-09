@@ -7,7 +7,7 @@ Este repositório contém os arquivos e projetos do curso de Programação Web. 
 - **06_09_2024**: Primeiro commit do projeto com o arquivo base.
 - **git_github**: Arquivos relacionados ao aprendizado de Git e GitHub.
 - **html_css**: Conteúdo relacionado ao estudo e desenvolvimento de páginas web com HTML e CSS.
-
+- **javascript**: Conteúdo relacionado ao estudo e desenvolvimento de páginas web com JavaScript.
 ## Tecnologias Utilizadas
 
 - HTML
