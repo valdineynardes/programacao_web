@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (user) {
             localStorage.setItem('loggedInUser', JSON.stringify(user));
             alert('Login bem-sucedido!');
-            window.location.href = 'dashboard.html';  // Redireciona para o dashboard após o login
+            window.location.href = 'dashboard.html';
         } else {
             alert('Usuário ou senha inválidos.');
         }

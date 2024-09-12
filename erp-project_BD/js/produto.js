@@ -1,10 +1,7 @@
-// products.js
-
 let products = [];
 let isEditing = false;
 let editingProductId = null;
 
-// Função para adicionar ou atualizar produto
 function addOrUpdateProduct(name, price, quantity) {
     if (isEditing) {
         updateProduct(editingProductId, name, price, quantity);
@@ -22,10 +19,9 @@ function addOrUpdateProduct(name, price, quantity) {
     editingProductId = null;
 }
 
-// Função para exibir produtos na tabela
 function displayProducts() {
     const productTableBody = document.getElementById('productTableBody');
-    productTableBody.innerHTML = '';  // Limpa a tabela
+    productTableBody.innerHTML = '';
 
     products.forEach((product) => {
         const row = document.createElement('tr');
@@ -42,13 +38,11 @@ function displayProducts() {
     });
 }
 
-// Função para excluir produto
 function deleteProduct(id) {
     products = products.filter(product => product.id !== id);
     displayProducts();
 }
 
-// Função para editar produto
 function editProduct(id) {
     const product = products.find(product => product.id === id);
     document.getElementById('productName').value = product.name;
@@ -59,7 +53,6 @@ function editProduct(id) {
     editingProductId = id;
 }
 
-// Função para atualizar produto
 function updateProduct(id, name, price, quantity) {
     const product = products.find(product => product.id === id);
     product.name = name;

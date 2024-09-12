@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let isEditing = false;
     let editingProductId = null;
 
-    // Função para adicionar ou atualizar produto
     productForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
@@ -27,18 +26,16 @@ document.addEventListener('DOMContentLoaded', function () {
             products.push(product);
         }
 
-        // Salva produtos no localStorage
         localStorage.setItem('products', JSON.stringify(products));
         displayProducts();
-        productForm.reset();  // Limpa o formulário
+        productForm.reset();
         isEditing = false;
         editingProductId = null;
         alert('Produto cadastrado com sucesso!');
     });
 
-    // Função para exibir produtos na tabela
     function displayProducts() {
-        productTableBody.innerHTML = '';  // Limpa a tabela
+        productTableBody.innerHTML = '';
 
         products.forEach((product) => {
             const row = document.createElement('tr');
@@ -55,15 +52,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Função para excluir produto
     window.deleteProduct = function (id) {
         products = products.filter(product => product.id !== id);
-        localStorage.setItem('products', JSON.stringify(products));  // Atualiza o localStorage
+        localStorage.setItem('products', JSON.stringify(products));
         displayProducts();
         alert('Produto excluído com sucesso!');
     }
 
-    // Função para editar produto
     window.editProduct = function (id) {
         const product = products.find(product => product.id === id);
         document.getElementById('productName').value = product.name;
@@ -74,24 +69,21 @@ document.addEventListener('DOMContentLoaded', function () {
         editingProductId = id;
     }
 
-    // Função para atualizar produto
     function updateProduct(id, name, price, quantity) {
         const product = products.find(product => product.id === id);
         product.name = name;
         product.price = price;
         product.quantity = quantity;
-        localStorage.setItem('products', JSON.stringify(products));  // Atualiza o localStorage
+        localStorage.setItem('products', JSON.stringify(products));
         displayProducts();
         alert('Produto atualizado com sucesso!');
     }
 
-    // Função de Logout
     logoutBtn.addEventListener('click', function () {
         localStorage.removeItem('loggedInUser');
         alert('Você saiu do sistema.');
-        window.location.href = 'index.html';  // Redireciona para a página de login
+        window.location.href = 'index.html';
     });
 
-    // Exibe produtos ao carregar a página
     displayProducts();
 });
