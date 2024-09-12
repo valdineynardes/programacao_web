@@ -1,0 +1,3 @@
+C:\Users\Valdiney\Desktop\erp_projeto\erp_projeto\x64\Debug\erp_projeto.vcxproj.AssemblyReference.cache
+C:\Users\Valdiney\Desktop\erp_projeto\erp_projeto\x64\Debug\erp_projeto.Form1.resources
+C:\Users\Valdiney\Desktop\erp_projeto\erp_projeto\x64\Debug\erp_projeto.vcxproj.GenerateResource.cache
