@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado da Corrida</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Resultado da Corrida de 100m</h1>
+        <form action="resultado_corrida.php" method="GET" class="mt-4">
+            <div class="mb-3">
+                <label for="nome1" class="form-label">Nome do primeiro atleta:</label>
+                <input type="text" class="form-control" id="nome1" name="nome1" required>
+                <label for="tempo1" class="form-label">Tempo (em segundos):</label>
+                <input type="number" step="0.01" class="form-control" id="tempo1" name="tempo1" required>
+            </div>
+            <div class="mb-3">
+                <label for="nome2" class="form-label">Nome do segundo atleta:</label>
+                <input type="text" class="form-control" id="nome2" name="nome2" required>
+                <label for="tempo2" class="form-label">Tempo (em segundos):</label>
+                <input type="number" step="0.01" class="form-control" id="tempo2" name="tempo2" required>
+            </div>
+            <div class="mb-3">
+                <label for="nome3" class="form-label">Nome do terceiro atleta:</label>
+                <input type="text" class="form-control" id="nome3" name="nome3" required>
+                <label for="tempo3" class="form-label">Tempo (em segundos):</label>
+                <input type="number" step="0.01" class="form-control" id="tempo3" name="tempo3" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Calcular Resultados</button>
+        </form>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
