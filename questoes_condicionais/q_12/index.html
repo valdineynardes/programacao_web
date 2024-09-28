@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Dias do Mês</title>
+</head>
+<body>
+    <h1>Verifique os Dias do Mês</h1>
+    <form method="GET" action="processa.php">
+        <div>
+            <label>Mês (1-12):</label>
+            <input type="number" name="mes" min="1" max="12" required>
+        </div>
+        <div>
+            <label>Ano:</label>
+            <input type="number" name="ano" required>
+        </div>
+        <button type="submit">Verificar Dias</button>
+    </form>
+</body>
+</html>

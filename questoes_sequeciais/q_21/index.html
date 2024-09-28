@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo do IMC</title>
+</head>
+<body>
+    <h1>Cálculo do Índice de Massa Corpórea (IMC)</h1>
+    <form method="GET" action="processa.php">
+        <div>
+            <label>Nome:</label>
+            <input type="text" name="nome" required>
+        </div>
+        <div>
+            <label>Peso (em kg):</label>
+            <input type="number" name="peso" step="any" required>
+        </div>
+        <div>
+            <label>Altura (em metros):</label>
+            <input type="number" name="altura" step="any" required>
+        </div>
+        <button type="submit">Calcular IMC</button>
+    </form>
+</body>
+</html>
+``

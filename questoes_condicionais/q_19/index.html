@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Corrida</title>
+</head>
+<body>
+    <h1>Informe os resultados da corrida</h1>
+    <form method="GET" action="processa.php">
+        <div>
+            <label>Nome do atleta 1:</label>
+            <input type="text" name="atleta1" required>
+            <label>Tempo (em segundos):</label>
+            <input type="number" step="any" name="tempo1" required>
+        </div>
+        <div>
+            <label>Nome do atleta 2:</label>
+            <input type="text" name="atleta2" required>
+            <label>Tempo (em segundos):</label>
+            <input type="number" step="any" name="tempo2" required>
+        </div>
+        <div>
+            <label>Nome do atleta 3:</label>
+            <input type="text" name="atleta3" required>
+            <label>Tempo (em segundos):</label>
+            <input type="number" step="any" name="tempo3" required>
+        </div>
+        <button type="submit">Verificar Resultados</button>
+    </form>
+</body>
+</html>

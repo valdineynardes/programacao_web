@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo da Massa Gravitacional</title>
+</head>
+<body>
+    <h1>Cálculo da Massa Gravitacional</h1>
+    <form method="GET" action="processa.php">
+        <div>
+            <label>Distância (m):</label>
+            <input type="number" name="distancia" step="any" required>
+        </div>
+        <div>
+            <label>Massa do outro objeto (kg):</label>
+            <input type="number" name="massa_outro" step="any" required>
+        </div>
+        <div>
+            <label>Força gravitacional (N):</label>
+            <input type="number" name="forca" step="any" required>
+        </div>
+        <button type="submit">Calcular Massa</button>
+    </form>
+</body>
+</html>

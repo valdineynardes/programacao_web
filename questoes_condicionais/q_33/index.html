@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação do Aluno</title>
+</head>
+<body>
+    <h1>Avaliação do Aluno</h1>
+    <form method="GET" action="processa.php">
+        <div>
+            <label>Nota 1:</label>
+            <input type="number" name="nota1" required min="0" max="100">
+        </div>
+        <div>
+            <label>Nota 2:</label>
+            <input type="number" name="nota2" required min="0" max="100">
+        </div>
+        <div>
+            <label>Nota da Prova Final (se necessário):</label>
+            <input type="number" name="nota_final" min="0" max="100">
+        </div>
+        <button type="submit">Verificar Situação</button>
+    </form>
+</body>
+</html>

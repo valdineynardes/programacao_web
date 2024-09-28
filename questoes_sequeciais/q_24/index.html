@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Substituir Sobrenome</title>
+</head>
+<body>
+    <h1>Substituir Sobrenome</h1>
+    <form method="GET" action="processa.php">
+        <div>
+            <label>Nome Completo:</label>
+            <input type="text" name="nome" required>
+        </div>
+        <div>
+            <label>Sobrenome a ser Substituído:</label>
+            <input type="text" name="sobrenome_antigo" required>
+        </div>
+        <div>
+            <label>Novo Sobrenome:</label>
+            <input type="text" name="sobrenome_novo" required>
+        </div>
+        <button type="submit">Substituir Sobrenome</button>
+    </form>
+</body>
+</html>

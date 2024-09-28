@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo da Média</title>
+</head>
+<body>
+    <h1>Cálculo da Média</h1>
+    <form method="GET" action="processa.php">
+        <div>
+            <label>Quantos números você quer informar?</label>
+            <input type="number" name="quantidade" min="1" required>
+        </div>
+        <div>
+            <label>Informe os números (separados por vírgula):</label>
+            <input type="text" name="numeros" placeholder="Ex: 10,20,30" required>
+        </div>
+        <button type="submit">Calcular Média</button>
+    </form>
+</body>
+</html>

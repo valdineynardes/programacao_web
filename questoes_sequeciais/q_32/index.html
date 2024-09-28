@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo do Tempo de Encontro</title>
+</head>
+<body>
+    <h1>Cálculo do Tempo para Encontro de Veículos</h1>
+    <form method="GET" action="processa.php">
+        <div>
+            <label>Velocidade do primeiro veículo (m/s):</label>
+            <input type="number" name="velocidade_veiculo1" step="any" required>
+        </div>
+        <div>
+            <label>Velocidade do segundo veículo (m/s):</label>
+            <input type="number" name="velocidade_veiculo2" step="any" required>
+        </div>
+        <div>
+            <label>Distância entre os veículos (m):</label>
+            <input type="number" name="distancia" step="any" required>
+        </div>
+        <button type="submit">Calcular Tempo</button>
+    </form>
+</body>
+</html>
