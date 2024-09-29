@@ -5,7 +5,7 @@ $descricao = $_GET['descricao'];
 $valor = $_GET['valor'];
 
 
-$delimitador = '%&&&%';
+$delimitador = ' %&&&% ';
 $dadosProduto = $codigo . $delimitador . $nome . $delimitador . $descricao . $delimitador . $valor . "\n";
 
 $arquivo = fopen("produto.txt", "a");
