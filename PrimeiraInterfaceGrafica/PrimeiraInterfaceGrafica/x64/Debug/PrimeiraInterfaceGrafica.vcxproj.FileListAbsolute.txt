@@ -1,3 +1,0 @@
-C:\Users\Valdiney\Desktop\PrimeiraInterfaceGrafica\PrimeiraInterfaceGrafica\x64\Debug\PrimeiraInterfaceGrafica.vcxproj.AssemblyReference.cache
-C:\Users\Valdiney\Desktop\PrimeiraInterfaceGrafica\PrimeiraInterfaceGrafica\x64\Debug\PrimeiraInterfaceGrafica.Form1.resources
-C:\Users\Valdiney\Desktop\PrimeiraInterfaceGrafica\PrimeiraInterfaceGrafica\x64\Debug\PrimeiraInterfaceGrafica.vcxproj.GenerateResource.cache
