@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Administrador</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Admin - Clínica Médica</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../../backend/controllers/logout.php">Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2>Lista de Usuários</h2>
+
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Tipo</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaUsuarios"></tbody>
+        </table>
+    </div>
+
+    <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editUserModalLabel">Editar Usuário</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editUserForm">
+                        <input type="hidden" id="editUserId" name="id">
+                        
+                        <label for="editUserName">Nome:</label>
+                        <input type="text" id="editUserName" name="nome" class="form-control" required>
+
+                        <label for="editUserEmail">Email:</label>
+                        <input type="email" id="editUserEmail" name="email" class="form-control" required>
+
+                        <label for="editUserType">Tipo:</label>
+                        <select id="editUserType" name="tipo" class="form-control">
+                            <option value="admin">Administrador</option>
+                            <option value="medico">Médico</option>
+                            <option value="paciente">Paciente</option>
+                        </select>
+
+                        <button type="submit" class="btn btn-primary mt-3">Salvar Alterações</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            carregarUsuarios();
+            
+
+            function carregarUsuarios() {
+                fetch('../../backend/controllers/listar_usuarios.php')
+                .then(response => response.json())
+                .then(data => {
+                    let tabela = document.getElementById('tabelaUsuarios');
+                    tabela.innerHTML = "";
+                    data.forEach(usuario => {
+                        tabela.innerHTML += `
+                            <tr>
+                                <td>${usuario.id}</td>
+                                <td>${usuario.nome}</td>
+                                <td>${usuario.email}</td>
+                                <td>${usuario.tipo}</td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm btn-editar" 
+                                        data-id="${usuario.id}" 
+                                        data-nome="${usuario.nome}" 
+                                        data-email="${usuario.email}" 
+                                        data-tipo="${usuario.tipo}">
+                                        Editar
+                                    </button>
+                                    <button class="btn btn-danger btn-sm btn-excluir" data-id="${usuario.id}">
+                                        Excluir
+                                    </button>
+                                </td>
+                            </tr>
+                        `;
+                    });
+
+                    adicionarEventosBotoes();
+                })
+                .catch(error => console.error('Erro:', error));
+            }
+
+            function adicionarEventosBotoes() {
+                document.querySelectorAll(".btn-editar").forEach(button => {
+                    button.addEventListener("click", function () {
+                        let userId = this.getAttribute("data-id");
+                        let userName = this.getAttribute("data-nome");
+                        let userEmail = this.getAttribute("data-email");
+                        let userType = this.getAttribute("data-tipo");
+
+                        document.getElementById("editUserId").value = userId;
+                        document.getElementById("editUserName").value = userName;
+                        document.getElementById("editUserEmail").value = userEmail;
+                        document.getElementById("editUserType").value = userType;
+
+                        let editModal = new bootstrap.Modal(document.getElementById("editUserModal"));
+                        editModal.show();
+                    });
+                });
+
+                document.querySelectorAll(".btn-excluir").forEach(button => {
+                    button.addEventListener("click", function () {
+                        let userId = this.getAttribute("data-id");
+                        if (confirm("Tem certeza que deseja excluir este usuário?")) {
+                            fetch(`../../backend/controllers/excluir_usuario.php?id=${userId}`, { method: 'GET' })
+                            .then(response => response.text())
+                            .then(() => carregarUsuarios());
+                        }
+                    });
+                });
+            }
+
+            document.getElementById("editUserForm").addEventListener("submit", function (event) {
+                event.preventDefault();
+                let formData = new FormData(this);
+
+                fetch('../../backend/controllers/editar_usuario.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                    carregarUsuarios();
+                    let editModal = bootstrap.Modal.getInstance(document.getElementById("editUserModal"));
+                    editModal.hide();
+                })
+                .catch(error => console.error("Erro:", error));
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
